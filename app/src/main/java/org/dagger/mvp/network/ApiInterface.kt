@@ -9,6 +9,7 @@ import org.dagger.mvp.network.response.BranchResponse
 import org.dagger.mvp.network.response.LoginResponse
 import org.dagger.mvp.network.response.RegionResponse
 import org.dagger.mvp.util.Constant.Companion.BASE_URL
+import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
@@ -30,7 +31,7 @@ interface ApiInterface {
 
     companion object Factory {
         fun create(): ApiInterface {
-            val retrofit = retrofit2.Retrofit.Builder()
+            val retrofit = Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)
